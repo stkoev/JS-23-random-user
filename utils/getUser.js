@@ -1,6 +1,6 @@
 const URL = "https://randomuser.me/api/";
 
-async function getUser(URL) {
+async function getUser() {
   try {
     const response = await fetch(URL);
     const data = await response.json();
@@ -21,6 +21,7 @@ async function getUser(URL) {
     return {
       phone,
       email,
+      age,
       image,
       password,
       street: `${number} ${name}`,
@@ -28,7 +29,7 @@ async function getUser(URL) {
     };
   } catch (error) {
     console.log(error);
-    containerDOM.innerHTML = `${error}`;
+    return error;
   }
 }
 
